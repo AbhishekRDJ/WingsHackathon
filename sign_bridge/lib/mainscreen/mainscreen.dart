@@ -83,6 +83,7 @@ class _MainscreenState extends State<Mainscreen> {
                 children: [
                   CustomeButton(
                       bgColor: Colors.white,
+                      fgColor: Colors.black,
                       text: "Sign Up",
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
@@ -91,6 +92,7 @@ class _MainscreenState extends State<Mainscreen> {
                   const SizedBox(height: 20),
                   CustomeButton(
                     bgColor: bgColor,
+                    fgColor: Colors.black,
                     text: "Log In",
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(
