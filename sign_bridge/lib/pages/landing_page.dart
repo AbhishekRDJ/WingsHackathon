@@ -45,14 +45,14 @@ class LandingPage extends StatelessWidget {
                         "title": "Voice to Sign",
                         "startColor": Colors.pink,
                         "endColor": Colors.red,
-                        "height": MediaQuery.of(context).size.height * 0.4,
+                        "height": MediaQuery.of(context).size.height * 0.38,
                         'onTap': () {} // Big card
                       },
                       {
                         "title": "Text to Speech",
                         "startColor": Colors.deepPurple,
                         "endColor": Colors.purple,
-                        "height": MediaQuery.of(context).size.height * 0.4,
+                        "height": MediaQuery.of(context).size.height * 0.38,
                         'onTap': () {} // Small card
                       },
                       {
