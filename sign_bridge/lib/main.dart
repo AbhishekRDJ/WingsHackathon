@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sign_bridge/mainscreen/mainscreen.dart';
+import 'package:sign_bridge/screens/mainscreen.dart';
 import 'package:sign_bridge/utils/colors.dart';
 
 void main() {
@@ -16,6 +16,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        splashFactory: NoSplash.splashFactory,
+        highlightColor: Colors.transparent,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
         scaffoldBackgroundColor: bgColor,

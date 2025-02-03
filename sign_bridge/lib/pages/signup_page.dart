@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:sign_bridge/pages/login_page.dart';
+import 'package:sign_bridge/screens/home_screen.dart';
 import 'package:sign_bridge/widgets/custome_button.dart';
 import 'package:sign_bridge/widgets/cutome_textfeild.dart';
 
@@ -14,6 +16,7 @@ class _SignupPageState extends State<SignupPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -61,25 +64,34 @@ class _SignupPageState extends State<SignupPage> {
             child: CustomeButton(
               bgColor: Colors.black,
               text: "Create account",
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => HomePage()));
+              },
               fgColor: Colors.white,
             ),
           ),
           const SizedBox(height: 50),
           Align(
             alignment: Alignment.bottomCenter,
-            child: RichText(
-                text: TextSpan(
-                    text: "Already have an account? ",
-                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                        fontWeight: FontWeight.normal, color: Colors.black87),
-                    children: [
-                  TextSpan(
-                      text: "Log in",
+            child: GestureDetector(
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => LoginPage()));
+              },
+              child: RichText(
+                  text: TextSpan(
+                      text: "Already have an account? ",
                       style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                          color: Colors.black,
-                          decoration: TextDecoration.underline))
-                ])),
+                          fontWeight: FontWeight.normal, color: Colors.black87),
+                      children: [
+                    TextSpan(
+                        text: "Log in",
+                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                            color: Colors.black,
+                            decoration: TextDecoration.underline))
+                  ])),
+            ),
           )
         ]),
       ),
