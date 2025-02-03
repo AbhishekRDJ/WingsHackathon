@@ -20,12 +20,18 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         scaffoldBackgroundColor: bgColor,
         textTheme: TextTheme(
-          bodyLarge: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
-          bodyMedium: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
-          bodySmall: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-          titleLarge: TextStyle(fontSize: 32.0, fontWeight: FontWeight.bold),
-          titleMedium: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
-          titleSmall: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+          bodyLarge: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold)
+              .copyWith(fontFamily: 'poppins'),
+          bodyMedium: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold)
+              .copyWith(fontFamily: 'poppins'),
+          bodySmall: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)
+              .copyWith(fontFamily: 'poppins'),
+          titleLarge: TextStyle(fontSize: 36.0, fontWeight: FontWeight.bold)
+              .copyWith(fontFamily: 'poppins'),
+          titleMedium: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold)
+              .copyWith(fontFamily: 'poppins'),
+          titleSmall: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold)
+              .copyWith(fontFamily: 'poppins'),
         ),
       ),
       home: const Mainscreen(),

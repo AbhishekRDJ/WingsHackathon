@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class CustomeButton extends StatelessWidget {
   final Color bgColor;
+  final Color fgColor;
   final String text;
   final VoidCallback onPressed;
   final bool isBorder;
@@ -11,6 +12,7 @@ class CustomeButton extends StatelessWidget {
       required this.bgColor,
       required this.text,
       required this.onPressed,
+      required this.fgColor,
       this.isBorder = false});
 
   @override
@@ -32,10 +34,7 @@ class CustomeButton extends StatelessWidget {
           elevation: WidgetStatePropertyAll(6)),
       child: Text(
         text,
-        style: Theme.of(context)
-            .textTheme
-            .bodyMedium!
-            .copyWith(color: Colors.black),
+        style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: fgColor),
       ),
     );
   }
