@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:sign_bridge/pages/TutorialsPage.dart';
-import 'package:sign_bridge/pages/DictionaryPage.dart';
-import 'package:sign_bridge/pages/ProfilePage.dart';
-import 'package:sign_bridge/pages/ProfilePage.dart';
+import 'package:sign_bridge/pages/dictionary_page.dart';
+import 'package:sign_bridge/pages/profile_page.dart.dart';
+import 'package:sign_bridge/pages/tutorial_page.dart';
 
 class LandingPage extends StatelessWidget {
   const LandingPage({super.key});
