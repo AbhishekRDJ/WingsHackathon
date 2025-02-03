@@ -9,6 +9,8 @@ class DictionaryPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.deepPurple,
         title: Text("Dictionary"),
+        leading: Text(""),
+        centerTitle: true,
       ),
       body: Center(
         child: Text(

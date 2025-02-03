@@ -9,11 +9,13 @@ class TutorialsPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.deepPurple,
         title: Text("Tutorials"),
+        leading: Text(""),
+        centerTitle: true,
       ),
       body: Center(
         child: Text(
           "Tutorials Page Content",
-          style: TextStyle(fontSize: 24),
+          style: Theme.of(context).textTheme.bodyMedium,
         ),
       ),
     );

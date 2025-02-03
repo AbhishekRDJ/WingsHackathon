@@ -1,36 +1,39 @@
 import 'package:flutter/material.dart';
-import 'package:sign_bridge/pages/DictionaryPage.dart';
-import 'package:sign_bridge/pages/LandingPage.dart';
-import 'package:sign_bridge/pages/ProfilePage.dart';
-import 'package:sign_bridge/pages/TutorialsPage.dart';
+import 'package:sign_bridge/pages/dictionary_page.dart';
+import 'package:sign_bridge/pages/landing_page.dart';
+import 'package:sign_bridge/pages/profile_page.dart.dart';
+import 'package:sign_bridge/pages/tutorial_page.dart';
+import 'package:sign_bridge/utils/colors.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
-  _HomePageState createState() => _HomePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
-
-  // List of pages for navigation
   final List<Widget> _pages = [
     LandingPage(),
     TutorialsPage(),
     DictionaryPage(),
     AdvancedProfilePage(),
   ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _pages[_currentIndex],
+      body: IndexedStack(
+        index: _currentIndex,
+        children: _pages,
+      ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: _currentIndex,
         selectedItemColor: Colors.deepPurple,
         unselectedItemColor: Colors.grey,
+        backgroundColor: bgColor,
+        iconSize: 28,
         onTap: (index) {
           setState(() {
             _currentIndex = index; // Update the current index to navigate

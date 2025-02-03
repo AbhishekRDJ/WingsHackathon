@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:sign_bridge/profile/edit_profile.dart';
+import 'package:sign_bridge/profile/help_center.dart';
+import 'package:sign_bridge/profile/notification_screen.dart';
+import 'package:sign_bridge/profile/progress_page.dart';
+import 'package:sign_bridge/profile/settings.dart';
 
 class AdvancedProfilePage extends StatelessWidget {
   const AdvancedProfilePage({super.key});
@@ -22,6 +27,7 @@ class AdvancedProfilePage extends StatelessWidget {
             },
           ),
         ],
+        leading: Text(""),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -35,9 +41,8 @@ class AdvancedProfilePage extends StatelessWidget {
                 children: [
                   CircleAvatar(
                     radius: 60,
-                    backgroundImage:
-                        AssetImage('assets/profile_placeholder.png'),
-                    backgroundColor: Colors.white,
+                    backgroundImage: NetworkImage(
+                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIH3cVN9nVOwezMJZgjRo0YhASylFMo1nJpw&s"),
                   ),
                   Container(
                     decoration: BoxDecoration(
@@ -109,12 +114,12 @@ class AdvancedProfilePage extends StatelessWidget {
                                 MaterialPageRoute(
                                     builder: (context) => ProgressPage()));
                           },
+                          child: Text('View Progress'),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0xFFFFC107),
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10)),
                           ),
-                          child: Text('View Progress'),
                         ),
                       ),
                     ],
@@ -183,62 +188,3 @@ class AdvancedProfilePage extends StatelessWidget {
 }
 
 // Dummy pages for navigation
-class EditProfilePage extends StatelessWidget {
-  const EditProfilePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text("Edit Profile")),
-      body: Center(child: Text("Edit Profile Page")),
-    );
-  }
-}
-
-class NotificationsPage extends StatelessWidget {
-  const NotificationsPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text("Notifications")),
-      body: Center(child: Text("Notifications Page")),
-    );
-  }
-}
-
-class HelpCenterPage extends StatelessWidget {
-  const HelpCenterPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text("Help Center")),
-      body: Center(child: Text("Help Center Page")),
-    );
-  }
-}
-
-class ProgressPage extends StatelessWidget {
-  const ProgressPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text("Progress")),
-      body: Center(child: Text("Progress Page")),
-    );
-  }
-}
-
-class SettingsPage extends StatelessWidget {
-  const SettingsPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text("Settings")),
-      body: Center(child: Text("Settings Page")),
-    );
-  }
-}
