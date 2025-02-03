@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sign_bridge/pages/dictionary_page.dart';
 import 'package:sign_bridge/pages/landing_page.dart';
 import 'package:sign_bridge/pages/profile_page.dart.dart';
-import 'package:sign_bridge/pages/tutorial_page.dart';
 import 'package:sign_bridge/utils/colors.dart';
 
 class HomePage extends StatefulWidget {
@@ -16,8 +14,6 @@ class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
   final List<Widget> _pages = [
     LandingPage(),
-    TutorialsPage(),
-    DictionaryPage(),
     AdvancedProfilePage(),
   ];
   @override
@@ -30,7 +26,7 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: _currentIndex,
-        selectedItemColor: Colors.deepPurple,
+        selectedItemColor: Colors.black,
         unselectedItemColor: Colors.grey,
         backgroundColor: bgColor,
         iconSize: 28,
@@ -43,14 +39,6 @@ class _HomePageState extends State<HomePage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.explore),
             label: 'Discover',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.video_library),
-            label: 'Tutorials',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.book),
-            label: 'Dictionary',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
