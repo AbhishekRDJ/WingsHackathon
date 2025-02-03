@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class AdvancedProfilePage extends StatelessWidget {
+  const AdvancedProfilePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -107,12 +109,12 @@ class AdvancedProfilePage extends StatelessWidget {
                                 MaterialPageRoute(
                                     builder: (context) => ProgressPage()));
                           },
-                          child: Text('View Progress'),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0xFFFFC107),
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10)),
                           ),
+                          child: Text('View Progress'),
                         ),
                       ),
                     ],
@@ -182,6 +184,8 @@ class AdvancedProfilePage extends StatelessWidget {
 
 // Dummy pages for navigation
 class EditProfilePage extends StatelessWidget {
+  const EditProfilePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -192,6 +196,8 @@ class EditProfilePage extends StatelessWidget {
 }
 
 class NotificationsPage extends StatelessWidget {
+  const NotificationsPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -202,6 +208,8 @@ class NotificationsPage extends StatelessWidget {
 }
 
 class HelpCenterPage extends StatelessWidget {
+  const HelpCenterPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -212,6 +220,8 @@ class HelpCenterPage extends StatelessWidget {
 }
 
 class ProgressPage extends StatelessWidget {
+  const ProgressPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -222,6 +232,8 @@ class ProgressPage extends StatelessWidget {
 }
 
 class SettingsPage extends StatelessWidget {
+  const SettingsPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

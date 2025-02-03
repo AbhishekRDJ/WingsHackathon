@@ -5,6 +5,8 @@ import 'package:sign_bridge/pages/ProfilePage.dart';
 import 'package:sign_bridge/pages/TutorialsPage.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
   _HomePageState createState() => _HomePageState();
 }

@@ -5,6 +5,8 @@ import 'package:sign_bridge/pages/ProfilePage.dart';
 import 'package:sign_bridge/pages/ProfilePage.dart';
 
 class LandingPage extends StatelessWidget {
+  const LandingPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
