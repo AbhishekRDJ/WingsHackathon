@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:sign_bridge/dictionary/dictionary_page/dictionary_page.dart';
 import 'package:sign_bridge/learn/learning_page.dart';
-import 'package:sign_bridge/pages/dictionary_page.dart';
 import 'package:sign_bridge/quizes/quize_page.dart';
 
 class LandingPage extends StatelessWidget {
@@ -80,7 +80,8 @@ class LandingPage extends StatelessWidget {
                         'context': context,
                         "height": MediaQuery.of(context).size.height * 0.3,
                         'onTap': () {},
-                        'url': '' // Big card
+                        'url':
+                            'https://i.pinimg.com/736x/72/23/ad/7223add877ddb9dfdf2593fec35f1e4f.jpg' // Big card
                       },
                       {
                         "title": "Text to Speech",
@@ -89,16 +90,18 @@ class LandingPage extends StatelessWidget {
                         'context': context,
                         "height": MediaQuery.of(context).size.height * 0.3,
                         'onTap': () {},
-                        'url': '' // Small card
+                        'url':
+                            'https://i.pinimg.com/236x/44/b8/5d/44b85d6c7eb3ead058debf67d9a337d3.jpg' // Small card
                       },
                       {
                         "title": "Sign to Voice",
                         "startColor": Colors.orangeAccent,
                         "endColor": Colors.deepOrange,
                         'context': context,
-                        "height": MediaQuery.of(context).size.height * 0.38,
+                        "height": MediaQuery.of(context).size.height * 0.3,
                         'onTap': () {},
-                        'url': '' // Big card
+                        'url':
+                            'https://i.pinimg.com/736x/5f/96/0b/5f960b8b585158f982e7e2d66f36f005.jpg' // Big card
                       },
                     ];
                     final item = items[index];
