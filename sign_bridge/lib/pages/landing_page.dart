@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:sign_bridge/dictionary/dictionary_page/dictionary_page.dart';
+import 'package:sign_bridge/dictionary/dictionary_page.dart';
+
 import 'package:sign_bridge/learn/learning_page.dart';
 import 'package:sign_bridge/quizes/quize_page.dart';
 
@@ -91,7 +92,7 @@ class LandingPage extends StatelessWidget {
                         "height": MediaQuery.of(context).size.height * 0.3,
                         'onTap': () {},
                         'url':
-                            'https://i.pinimg.com/236x/44/b8/5d/44b85d6c7eb3ead058debf67d9a337d3.jpg' // Small card
+                            'https://i.pinimg.com/474x/ec/47/d0/ec47d0d6525ff89665801a3a7769d97b.jpg' // Small card
                       },
                       {
                         "title": "Sign to Voice",

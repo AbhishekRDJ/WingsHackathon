@@ -12,7 +12,7 @@ class _LearningPageState extends State<LearningPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text("Learning content"),
+        child: Text("Learning conten"),
       ),
     );
   }
