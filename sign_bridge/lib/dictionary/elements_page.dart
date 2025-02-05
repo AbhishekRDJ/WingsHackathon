@@ -1,24 +1,26 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:sign_bridge/utils/colors.dart';
-import 'package:sign_bridge/utils/data.dart';
 
 class ElementScreen extends StatefulWidget {
-  const ElementScreen({super.key});
+  final List<String> ls;
+  final String title;
+
+  const ElementScreen({super.key, required this.ls, required this.title});
 
   @override
   State<ElementScreen> createState() => _ElementScreenState();
 }
 
-List<int> buildIndex() {
-  List<int> indices = [];
-  for (int i = 0; i < alphabets.length; i++) {
-    indices.add(i);
-  }
-  return indices;
-}
-
 class _ElementScreenState extends State<ElementScreen> {
+  List<int> buildIndex() {
+    List<int> indices = [];
+    for (int i = 0; i < widget.ls.length; i++) {
+      indices.add(i);
+    }
+    return indices;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +31,7 @@ class _ElementScreenState extends State<ElementScreen> {
           children: <Widget>[
             Center(
               child: Text(
-                'Alphabets',
+                widget.title,
                 style: TextStyle(
                   fontSize: 50.0,
                   fontWeight: FontWeight.bold,
@@ -63,7 +65,7 @@ class _ElementScreenState extends State<ElementScreen> {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(30),
                           child: Image.network(
-                            alphabets[i],
+                            widget.ls[i],
                           ),
                         ),
                       ),

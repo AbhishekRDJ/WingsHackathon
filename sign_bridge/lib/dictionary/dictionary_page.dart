@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:sign_bridge/dictionary/element_screen.dart';
+import 'package:sign_bridge/dictionary/animals_menu.dart';
+import 'package:sign_bridge/dictionary/colors_menu.dart';
+import 'package:sign_bridge/dictionary/days_months_menu.dart';
+import 'package:sign_bridge/dictionary/elements_page.dart';
+import 'package:sign_bridge/dictionary/emotion_menu.dart';
+import 'package:sign_bridge/dictionary/family_menu.dart';
+import 'package:sign_bridge/dictionary/food_menu.dart';
+import 'package:sign_bridge/dictionary/greetings_menu.dart';
 import 'package:sign_bridge/quizes/quize_page.dart';
+import 'package:sign_bridge/utils/data.dart';
 import 'package:sign_bridge/widgets/custom_card.dart';
 
 class DictionaryPage extends StatelessWidget {
@@ -43,7 +51,10 @@ class DictionaryPage extends StatelessWidget {
                           "height": MediaQuery.of(context).size.height * 0.2,
                           'onTap': () {
                             Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => ElementScreen()));
+                                builder: (context) => ElementScreen(
+                                      ls: alphabets,
+                                      title: "Alphabets",
+                                    )));
                           },
                           'url':
                               "https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/alphabet.png?raw=true"
@@ -56,7 +67,8 @@ class DictionaryPage extends StatelessWidget {
                           "height": MediaQuery.of(context).size.height * 0.2,
                           'onTap': () {
                             Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => DictionaryPage()));
+                                builder: (context) => ElementScreen(
+                                    ls: numbers, title: 'Numbers')));
                           },
                           'url':
                               'https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/numbers.png?raw=true' // Small card
@@ -68,7 +80,7 @@ class DictionaryPage extends StatelessWidget {
                           "height": MediaQuery.of(context).size.height * 0.2,
                           'onTap': () {
                             Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => QuizePage()));
+                                builder: (context) => DaysMonthsMenu()));
                           },
                           'url':
                               "https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/calendar.png?raw=true" // Small card
@@ -78,7 +90,10 @@ class DictionaryPage extends StatelessWidget {
 
                           'context': context,
                           "height": MediaQuery.of(context).size.height * 0.2,
-                          'onTap': () {},
+                          'onTap': () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => ColorsMenu()));
+                          },
                           'url':
                               'https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/colors.png?raw=true' // Big card
                         },
@@ -87,7 +102,10 @@ class DictionaryPage extends StatelessWidget {
 
                           'context': context,
                           "height": MediaQuery.of(context).size.height * 0.2,
-                          'onTap': () {},
+                          'onTap': () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => FamilyMenu()));
+                          },
                           'url':
                               'https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/family.png?raw=true' // Small card
                         },
@@ -96,7 +114,10 @@ class DictionaryPage extends StatelessWidget {
 
                           'context': context,
                           "height": MediaQuery.of(context).size.height * 0.2,
-                          'onTap': () {},
+                          'onTap': () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => GreetingsMenu()));
+                          },
                           'url':
                               'https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/greetings.png?raw=true' // Big card
                         },
@@ -105,7 +126,10 @@ class DictionaryPage extends StatelessWidget {
 
                           'context': context,
                           "height": MediaQuery.of(context).size.height * 0.2,
-                          'onTap': () {},
+                          'onTap': () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => FoodMenu()));
+                          },
                           'url':
                               'https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/food.png?raw=true' // Big card
                         },
@@ -113,7 +137,10 @@ class DictionaryPage extends StatelessWidget {
                           "title": "Animals",
                           'context': context,
                           "height": MediaQuery.of(context).size.height * 0.2,
-                          'onTap': () {},
+                          'onTap': () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => AnimalsMenu()));
+                          },
                           'url':
                               'https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/animals.png?raw=true' // Big card
                         },
@@ -121,7 +148,10 @@ class DictionaryPage extends StatelessWidget {
                           "title": "Emotions",
                           'context': context,
                           "height": MediaQuery.of(context).size.height * 0.2,
-                          'onTap': () {},
+                          'onTap': () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => EmotionMenu()));
+                          },
                           'url':
                               'https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/emotions.png?raw=true' // Big card
                         },

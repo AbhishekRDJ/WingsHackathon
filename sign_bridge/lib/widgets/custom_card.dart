@@ -6,13 +6,17 @@ class CustomCard extends StatefulWidget {
 
   final String imgUrl;
   final String title;
+  final Color? color;
+  final Color? cardColor;
 
   const CustomCard(
       {super.key,
       required this.height,
       required this.imgUrl,
       required this.opTap,
-      required this.title});
+      required this.title,
+      this.color,
+      this.cardColor});
 
   @override
   State<CustomCard> createState() => _CustomCardState();
@@ -27,8 +31,11 @@ class _CustomCardState extends State<CustomCard> {
         duration: const Duration(milliseconds: 300),
         height: widget.height, // Dynamic height per card
         decoration: BoxDecoration(
+            color: widget.cardColor ?? null,
             borderRadius: BorderRadius.circular(16),
-            image: DecorationImage(image: NetworkImage(widget.imgUrl))),
+            image: widget.cardColor == null
+                ? DecorationImage(image: NetworkImage(widget.imgUrl))
+                : null),
         child: Padding(
           padding: const EdgeInsets.all(10),
           child: Align(
@@ -38,8 +45,7 @@ class _CustomCardState extends State<CustomCard> {
               style: Theme.of(context)
                   .textTheme
                   .bodyLarge!
-                  .copyWith(color: Colors.white)
-                  .copyWith(color: Colors.black),
+                  .copyWith(color: widget.color ?? Colors.black),
             ),
           ),
         ),
