@@ -22,62 +22,59 @@ class _ElementScreenState extends State<ElementScreen> {
     return Scaffold(
       backgroundColor: bgColor,
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 20.0, vertical: 30.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                // Title with Shadow
-                Text(
-                  widget.title,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 36.0,
-                    fontWeight: FontWeight.w800,
-                    color: Colors.black87,
-                    letterSpacing: 1.3,
-                    shadows: [
-                      Shadow(
-                        color: Colors.black26,
-                        blurRadius: 6,
-                        offset: Offset(2, 2),
-                      ),
-                    ],
-                  ),
+        child: Column(
+          children: [
+            // Title with Gradient Effect
+            ShaderMask(
+              shaderCallback: (Rect bounds) {
+                return const LinearGradient(
+                  colors: [Colors.blueAccent, Colors.purpleAccent],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ).createShader(bounds);
+              },
+              child: Text(
+                widget.title,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontSize: 36.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
                 ),
-                const SizedBox(height: 40.0),
+              ),
+            ),
+            const SizedBox(height: 30.0),
 
-                // Carousel Slider with Glassmorphism Effect
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.5,
-                  child: CarouselSlider.builder(
-                    itemCount: widget.ls.length,
-                    options: CarouselOptions(
-                      height: MediaQuery.of(context).size.height * 0.5,
-                      viewportFraction: 0.8,
-                      enlargeCenterPage: true,
-                      autoPlay: true,
-                      autoPlayInterval: const Duration(seconds: 3),
-                      enableInfiniteScroll: true,
-                      onPageChanged: (index, reason) {
-                        setState(() {
-                          _currentIndex = index;
-                        });
-                      },
-                    ),
-                    itemBuilder: (context, index, realIndex) {
-                      return AnimatedContainer(
-                        duration: const Duration(milliseconds: 300),
+            // Parallax Carousel
+            Expanded(
+              child: CarouselSlider.builder(
+                itemCount: widget.ls.length,
+                options: CarouselOptions(
+                  height: MediaQuery.of(context).size.height * 0.6,
+                  viewportFraction: 0.75,
+                  enlargeCenterPage: true,
+                  autoPlay: true,
+                  autoPlayInterval: const Duration(seconds: 3),
+                  enableInfiniteScroll: true,
+                  onPageChanged: (index, reason) {
+                    setState(() {
+                      _currentIndex = index;
+                    });
+                  },
+                ),
+                itemBuilder: (context, index, realIndex) {
+                  return Stack(
+                    children: [
+                      // Background Image with Parallax Effect
+                      Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.black38,
-                              blurRadius: _currentIndex == index ? 14.0 : 6.0,
+                              color: Colors.black.withOpacity(0.2),
+                              blurRadius: 10.0,
                               spreadRadius: 2.0,
-                              offset: Offset(0, 6),
+                              offset: const Offset(0, 6),
                             ),
                           ],
                         ),
@@ -91,21 +88,36 @@ class _ElementScreenState extends State<ElementScreen> {
                                 width: double.infinity,
                                 height: double.infinity,
                               ),
+                              // Gradient Overlay
+                              Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  gradient: LinearGradient(
+                                    colors: [
+                                      Colors.black.withOpacity(0.3),
+                                      Colors.transparent
+                                    ],
+                                    begin: Alignment.bottomCenter,
+                                    end: Alignment.topCenter,
+                                  ),
+                                ),
+                              ),
+                              // Slide Number with Glass Effect
                               Positioned(
                                 bottom: 20,
                                 left: 20,
                                 right: 20,
-                                child: Container(
-                                  padding: const EdgeInsets.all(10),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(15),
                                   child: BackdropFilter(
                                     filter: ImageFilter.blur(
                                         sigmaX: 10, sigmaY: 10),
                                     child: Container(
+                                      padding: const EdgeInsets.all(10),
                                       decoration: BoxDecoration(
-                                        color: Colors.black54,
+                                        color: Colors.white.withOpacity(0.3),
                                         borderRadius: BorderRadius.circular(15),
                                       ),
-                                      padding: const EdgeInsets.all(8),
                                       child: Text(
                                         'Slide ${index + 1}',
                                         textAlign: TextAlign.center,
@@ -122,35 +134,44 @@ class _ElementScreenState extends State<ElementScreen> {
                             ],
                           ),
                         ),
-                      );
-                    },
-                  ),
-                ),
-
-                const SizedBox(height: 20.0),
-
-                // Indicator Dots with Animation
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: List.generate(
-                    widget.ls.length,
-                    (index) => AnimatedContainer(
-                      duration: const Duration(milliseconds: 300),
-                      width: _currentIndex == index ? 12.0 : 8.0,
-                      height: _currentIndex == index ? 12.0 : 8.0,
-                      margin: const EdgeInsets.symmetric(horizontal: 4.0),
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: _currentIndex == index
-                            ? Colors.blueAccent
-                            : Colors.grey.withOpacity(0.5),
                       ),
-                    ),
+                    ],
+                  );
+                },
+              ),
+            ),
+
+            const SizedBox(height: 20.0),
+
+            // Indicator Dots with Neumorphism Effect
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(
+                widget.ls.length,
+                (index) => AnimatedContainer(
+                  duration: const Duration(milliseconds: 300),
+                  width: _currentIndex == index ? 14.0 : 10.0,
+                  height: _currentIndex == index ? 14.0 : 10.0,
+                  margin: const EdgeInsets.symmetric(horizontal: 4.0),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.2),
+                        blurRadius: 6.0,
+                        spreadRadius: 2.0,
+                      ),
+                    ],
+                    color: _currentIndex == index
+                        ? Colors.blueAccent
+                        : Colors.grey.withOpacity(0.4),
                   ),
                 ),
-              ],
+              ),
             ),
-          ),
+
+            const SizedBox(height: 30.0),
+          ],
         ),
       ),
     );
