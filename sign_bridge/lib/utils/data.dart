@@ -76,3 +76,30 @@ List<String> months = [
   'https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/months/November.gif?raw=true',
   'https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/months/December.gif?raw=true',
 ];
+
+List<Map<String, dynamic>> subjects = [
+  {
+    'imgUrl':
+        "https://i.pinimg.com/236x/8b/42/da/8b42da28243a95af418ef32cc5df9261.jpg",
+    'subject': 'Maths',
+    'progress': "completed 11 out of 20"
+  },
+  {
+    'imgUrl':
+        "https://i.pinimg.com/236x/8b/42/da/8b42da28243a95af418ef32cc5df9261.jpg",
+    'subject': 'Chemistry',
+    'progress': "completed 11 out of 20"
+  },
+  {
+    'imgUrl':
+        "https://i.pinimg.com/236x/8b/42/da/8b42da28243a95af418ef32cc5df9261.jpg",
+    'subject': 'English',
+    'progress': "completed 11 out of 20"
+  },
+  {
+    'imgUrl':
+        "https://i.pinimg.com/236x/8b/42/da/8b42da28243a95af418ef32cc5df9261.jpg",
+    'subject': 'Physics',
+    'progress': "completed 11 out of 20"
+  },
+];

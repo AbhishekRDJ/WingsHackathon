@@ -44,7 +44,7 @@ class _ElementScreenState extends State<ElementScreen> {
             ),
             CarouselSlider(
               options: CarouselOptions(
-                height: 400,
+                height: MediaQuery.of(context).size.height * 0.5,
                 viewportFraction: 0.8,
                 enlargeCenterPage: true,
                 autoPlay: false,
