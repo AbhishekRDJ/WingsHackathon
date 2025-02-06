@@ -50,18 +50,14 @@ class _MainscreenState extends State<Mainscreen> {
                     duration: Duration(seconds: 2),
                     opacity: _animate ? 1 : 0,
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                          padding: EdgeInsets.symmetric(
+                              horizontal:
+                                  MediaQuery.of(context).size.width * 0.1),
                           child: Text(
-                            "Connecting through",
-                            style: Theme.of(context).textTheme.titleLarge,
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
-                          child: Text(
-                            "Signs!",
+                            "Connecting through Signs!",
                             style: Theme.of(context).textTheme.titleLarge,
                           ),
                         ),

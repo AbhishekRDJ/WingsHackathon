@@ -21,13 +21,12 @@ class _SignupPageState extends State<SignupPage> {
         padding: const EdgeInsets.symmetric(horizontal: 15),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 50),
+            padding: const EdgeInsets.symmetric(vertical: 30),
             child: Align(
               alignment: Alignment.topRight,
               child: Image.asset("assets/images/logo2.png"),
             ),
           ),
-          const SizedBox(height: 5),
           Text("Join us and start bridging worlds today!",
                   style: Theme.of(context).textTheme.titleLarge)
               .animate()
@@ -35,31 +34,31 @@ class _SignupPageState extends State<SignupPage> {
                   delay: Duration(milliseconds: 300),
                   duration: Duration(seconds: 1))
               .fade(delay: Duration(milliseconds: 400)),
-          const SizedBox(height: 30),
+          const SizedBox(height: 20),
           CustomeTextfeild(
             hintText: "Enter your name",
             isPass: false,
             controller: TextEditingController(),
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 15),
           CustomeTextfeild(
             hintText: "Enter your email",
             isPass: false,
             controller: TextEditingController(),
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 15),
           CustomeTextfeild(
             hintText: "Enter your password",
             isPass: true,
             controller: TextEditingController(),
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 15),
           CustomeTextfeild(
             hintText: "Confirm your password",
             isPass: true,
             controller: TextEditingController(),
           ),
-          const SizedBox(height: 50),
+          const SizedBox(height: 40),
           Center(
             child: CustomeButton(
               bgColor: Colors.black,
@@ -71,7 +70,7 @@ class _SignupPageState extends State<SignupPage> {
               fgColor: Colors.white,
             ),
           ),
-          const SizedBox(height: 50),
+          const SizedBox(height: 30),
           Align(
             alignment: Alignment.bottomCenter,
             child: GestureDetector(
