@@ -97,8 +97,8 @@ class _AcdamicsPageState extends State<AcdamicsPage> {
                                   subjects[index]['progress'],
                                   style: Theme.of(context)
                                       .textTheme
-                                      .bodyMedium!
-                                      .copyWith(color: Colors.white),
+                                      .bodySmall!
+                                      .copyWith(color: Colors.grey),
                                 )
                               ],
                             )

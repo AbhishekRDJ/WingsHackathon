@@ -141,7 +141,7 @@ class _ElementScreenState extends State<ElementScreen> {
               ),
             ),
 
-            const SizedBox(height: 20.0),
+            const SizedBox(height: 10.0),
 
             // Indicator Dots with Neumorphism Effect
             Row(
@@ -150,7 +150,7 @@ class _ElementScreenState extends State<ElementScreen> {
                 widget.ls.length,
                 (index) => AnimatedContainer(
                   duration: const Duration(milliseconds: 300),
-                  width: _currentIndex == index ? 14.0 : 10.0,
+                  width: _currentIndex == index ? 6.0 : 4.0,
                   height: _currentIndex == index ? 14.0 : 10.0,
                   margin: const EdgeInsets.symmetric(horizontal: 4.0),
                   decoration: BoxDecoration(
