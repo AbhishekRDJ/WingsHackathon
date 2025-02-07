@@ -57,7 +57,16 @@ class _MainscreenState extends State<Mainscreen> {
                               horizontal:
                                   MediaQuery.of(context).size.width * 0.1),
                           child: Text(
-                            "Connecting through Signs!",
+                            "Connecting",
+                            style: Theme.of(context).textTheme.titleLarge,
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal:
+                                  MediaQuery.of(context).size.width * 0.1),
+                          child: Text(
+                            "through Signs !",
                             style: Theme.of(context).textTheme.titleLarge,
                           ),
                         ),

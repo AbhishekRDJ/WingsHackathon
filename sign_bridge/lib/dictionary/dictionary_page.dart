@@ -8,7 +8,6 @@ import 'package:sign_bridge/dictionary/emotion_menu.dart';
 import 'package:sign_bridge/dictionary/family_menu.dart';
 import 'package:sign_bridge/dictionary/food_menu.dart';
 import 'package:sign_bridge/dictionary/greetings_menu.dart';
-import 'package:sign_bridge/quizes/quize_page.dart';
 import 'package:sign_bridge/utils/data.dart';
 import 'package:sign_bridge/widgets/custom_card.dart';
 
