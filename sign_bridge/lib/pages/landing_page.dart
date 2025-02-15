@@ -68,7 +68,7 @@ class LandingPage extends StatelessWidget {
                         "height": MediaQuery.of(context).size.height * 0.38,
                         'onTap': () {
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => QuizePage()));
+                              builder: (context) => HomePageOfQuize()));
                         },
                         'url':
                             "https://i.pinimg.com/736x/d8/e9/0c/d8e90c3c26cb75336b3d51e7739082a1.jpg" // Small card
