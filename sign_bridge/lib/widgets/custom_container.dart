@@ -23,11 +23,12 @@ class CustomContainer extends StatelessWidget {
         padding: EdgeInsets.all(10),
         duration: const Duration(milliseconds: 300),
         decoration: BoxDecoration(
-          image: DecorationImage(image: NetworkImage(imgUrl), fit: BoxFit.fill),
+          image:
+              DecorationImage(image: NetworkImage(imgUrl), fit: BoxFit.cover),
           borderRadius: BorderRadius.circular(16),
         ),
         height: height,
-        width: MediaQuery.of(context).size.width * 0.43,
+        width: MediaQuery.of(context).size.width * 0.42,
         child: Align(
           alignment: Alignment.bottomCenter,
           child: Text(
