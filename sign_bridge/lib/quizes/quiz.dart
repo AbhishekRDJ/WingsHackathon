@@ -1,167 +1,194 @@
-import 'package:flutter/material.dart';
-import 'package:animate_do/animate_do.dart';
-import 'package:confetti/confetti.dart';
+import 'dart:async';
 import 'dart:math';
+import 'package:flutter/material.dart';
 
 class QuizPage extends StatefulWidget {
+  final List<Map<String, dynamic>> questions;
+
+  const QuizPage({super.key, required this.questions});
+
   @override
   _QuizPageState createState() => _QuizPageState();
 }
 
 class _QuizPageState extends State<QuizPage> {
-  int _currentQuestionIndex = 0;
-  int _score = 0;
-  final ConfettiController _confettiController =
-      ConfettiController(duration: Duration(seconds: 3));
+  int questionIndex = 0;
+  int score = 0;
+  bool answerSelected = false;
+  Map<String, Color> buttonColors = {};
+  Timer? timer;
+  int timeLeft = 10;
 
-  final List<Map<String, dynamic>> _questions = [
-    {
-      "question": "What is the capital of France?",
-      "options": ["Paris", "London", "Berlin", "Madrid"],
-      "answer": "Paris"
-    },
-    {
-      "question": "Who wrote 'To Kill a Mockingbird'?",
-      "options": [
-        "Harper Lee",
-        "J.K. Rowling",
-        "Ernest Hemingway",
-        "Mark Twain"
-      ],
-      "answer": "Harper Lee"
-    },
-    {
-      "question": "What is the square root of 64?",
-      "options": ["6", "8", "10", "12"],
-      "answer": "8"
-    },
-    {
-      "question": "What is the largest planet in our solar system?",
-      "options": ["Earth", "Jupiter", "Mars", "Saturn"],
-      "answer": "Jupiter"
-    },
-    {
-      "question": "What year did World War II end?",
-      "options": ["1945", "1939", "1918", "1965"],
-      "answer": "1945"
-    },
-    {
-      "question": "What is the chemical symbol for Gold?",
-      "options": ["Au", "Ag", "Pb", "Fe"],
-      "answer": "Au"
-    },
-    {
-      "question": "What is the powerhouse of the cell?",
-      "options": ["Nucleus", "Mitochondria", "Ribosome", "Golgi body"],
-      "answer": "Mitochondria"
-    }
-  ];
+  @override
+  void initState() {
+    super.initState();
+    _shuffleQuestions();
+    _startTimer();
+  }
 
-  void _checkAnswer(String selectedAnswer) {
-    if (selectedAnswer == _questions[_currentQuestionIndex]["answer"]) {
-      _score++;
-    }
+  void _shuffleQuestions() {
     setState(() {
-      if (_currentQuestionIndex < _questions.length - 1) {
-        _currentQuestionIndex++;
-      } else {
-        if (_score == _questions.length) {
-          _confettiController.play();
-        }
-        _showScoreDialog();
+      widget.questions.shuffle(Random());
+      for (var question in widget.questions) {
+        (question["options"] as List).shuffle();
       }
     });
   }
 
-  void _showScoreDialog() {
+  void _startTimer() {
+    timer?.cancel();
+    timeLeft = 10;
+    timer = Timer.periodic(Duration(seconds: 1), (timer) {
+      if (timeLeft > 0) {
+        setState(() {
+          timeLeft--;
+        });
+      } else {
+        _nextQuestion();
+      }
+    });
+  }
+
+  void _checkAnswer(String selectedOption) {
+    if (answerSelected) return;
+
+    setState(() {
+      answerSelected = true;
+      String correctAnswer = widget.questions[questionIndex]["answer"];
+
+      if (selectedOption == correctAnswer) {
+        score++;
+        buttonColors[selectedOption] = Colors.green;
+      } else {
+        buttonColors[selectedOption] = Colors.red;
+        buttonColors[correctAnswer] = Colors.green;
+      }
+    });
+
+    Future.delayed(Duration(seconds: 1), _nextQuestion);
+  }
+
+  void _nextQuestion() {
+    if (questionIndex < widget.questions.length - 1) {
+      setState(() {
+        questionIndex++;
+        answerSelected = false;
+        buttonColors.clear();
+      });
+      _startTimer();
+    } else {
+      _showFinalScore();
+    }
+  }
+
+  void _restartQuiz() {
+    setState(() {
+      questionIndex = 0;
+      score = 0;
+      answerSelected = false;
+      buttonColors.clear();
+      _shuffleQuestions();
+    });
+    _startTimer();
+  }
+
+  void _showFinalScore() {
     showDialog(
       context: context,
-      builder: (context) => AlertDialog(
+      barrierDismissible: false,
+      builder: (ctx) => AlertDialog(
         title: Text("Quiz Completed!"),
-        content: Text("Your Score: $_score/${_questions.length}"),
+        content: Text("Your score: $score / ${widget.questions.length}"),
         actions: [
           TextButton(
-            onPressed: () {
-              setState(() {
-                _currentQuestionIndex = 0;
-                _score = 0;
-              });
-              Navigator.pop(context);
-            },
             child: Text("Restart"),
-          )
+            onPressed: () {
+              Navigator.of(ctx).pop();
+              _restartQuiz();
+            },
+          ),
         ],
       ),
     );
   }
 
   @override
-  void dispose() {
-    _confettiController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          title: Text("Quiz Level 3"), backgroundColor: Colors.deepPurple),
-      body: Stack(
-        children: [
-          Padding(
-            padding: EdgeInsets.all(16.0),
+      backgroundColor: Color(0xFF4A148C),
+      body: Padding(
+        padding: EdgeInsets.all(16.0),
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  "Question ${_currentQuestionIndex + 1} of ${_questions.length}",
+                  "Guess the alphabet",
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleLarge
+                      ?.copyWith(color: Colors.white),
+                ),
+                SizedBox(height: 20),
+                Text(
+                  "${questionIndex + 1}/${widget.questions.length}",
                   style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.grey),
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 10),
-                FadeIn(
-                  child: Text(
-                    _questions[_currentQuestionIndex]["question"],
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                Text(
+                  "Time left: $timeLeft sec",
+                  style: TextStyle(color: Colors.white, fontSize: 18),
+                ),
+                SizedBox(height: 20),
+                Container(
+                  height: MediaQuery.of(context).size.height * 0.45,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(16),
+                    child: Image.network(
+                      widget.questions[questionIndex]["image"],
+                      width: double.infinity,
+                      fit: BoxFit.fill,
+                    ),
                   ),
                 ),
                 SizedBox(height: 20),
                 Column(
-                  children: _questions[_currentQuestionIndex]["options"]
-                      .map<Widget>((option) {
-                    return Padding(
-                      padding: EdgeInsets.symmetric(vertical: 8.0),
-                      child: BounceInLeft(
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            padding: EdgeInsets.symmetric(
-                                vertical: 16, horizontal: 70),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12)),
-                          ),
-                          onPressed: () => _checkAnswer(option),
-                          child: Text(option, style: TextStyle(fontSize: 18)),
-                        ),
-                      ),
-                    );
-                  }).toList(),
+                  children: (widget.questions[questionIndex]["options"]
+                          as List<String>)
+                      .map((option) => Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 15),
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor:
+                                    buttonColors[option] ?? Colors.white,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(65)),
+                                fixedSize: Size(
+                                  MediaQuery.of(context).size.width * 0.9,
+                                  MediaQuery.of(context).size.height * 0.06,
+                                ),
+                              ),
+                              onPressed: () => _checkAnswer(option),
+                              child: Text(
+                                option,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleLarge!
+                                    .copyWith(color: Colors.black),
+                              ),
+                            ),
+                          ))
+                      .toList(),
                 ),
               ],
             ),
           ),
-          Align(
-            alignment: Alignment.topCenter,
-            child: ConfettiWidget(
-              confettiController: _confettiController,
-              blastDirection: pi / 2,
-              emissionFrequency: 0.05,
-              numberOfParticles: 20,
-              gravity: 0.1,
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }

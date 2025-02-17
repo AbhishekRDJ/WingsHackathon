@@ -103,3 +103,149 @@ List<Map<String, dynamic>> subjects = [
     'progress': "completed 11 out of 20"
   },
 ];
+
+List<Map<String, dynamic>> quizes = [
+  {
+    "image":
+        "https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/quizzes/alphabets/C.png?raw=true",
+    "question": "What is in this image?",
+    "options": ["C", "D", "E"],
+    "answer": "C"
+  },
+  {
+    "image":
+        "https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/quizzes/alphabets/D.png?raw=true",
+    "question": "Which fruit is shown here?",
+    "options": ["A", "R", "D"],
+    "answer": "D"
+  },
+  {
+    "image":
+        "https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/quizzes/alphabets/E.png?raw=true",
+    "question": "Which vehicle is this?",
+    "options": ["Q", "E", "B"],
+    "answer": "E"
+  },
+  {
+    "image":
+        "https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/quizzes/alphabets/G.png?raw=true",
+    "question": "Which programming language logo is this?",
+    "options": ["G", "J", "O"],
+    "answer": "G"
+  },
+  {
+    "image":
+        "https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/quizzes/alphabets/K.png?raw=true",
+    "question": "Which monument is shown here?",
+    "options": ["E", "T", "K"],
+    "answer": "K"
+  },
+  {
+    "image":
+        "https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/quizzes/alphabets/M.png?raw=true",
+    "question": "What is in this image?",
+    "options": ["S", "M", "E"],
+    "answer": "M"
+  },
+  {
+    "image":
+        "https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/quizzes/alphabets/O.png?raw=true",
+    "question": "Which fruit is shown here?",
+    "options": ["O", "B", "M"],
+    "answer": "O"
+  },
+  {
+    "image":
+        "https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/quizzes/alphabets/Q.png?raw=true",
+    "question": "Which vehicle is this?",
+    "options": ["L", "X", "Q"],
+    "answer": "Q"
+  },
+  {
+    "image":
+        "https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/quizzes/alphabets/T.png?raw=true",
+    "question": "Which programming language logo is this?",
+    "options": ["H", "T", "Z"],
+    "answer": "T"
+  },
+  {
+    "image":
+        "https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/quizzes/alphabets/U.png?raw=true",
+    "question": "Which monument is shown here?",
+    "options": ["N", "T", "U"],
+    "answer": "U"
+  }
+];
+
+List<Map<String, dynamic>> greetings = [
+  {
+    "image":
+        "https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/quizzes/alphabets/C.png?raw=true",
+    "question": "What is in this image?",
+    "options": ["C", "D", "E"],
+    "answer": "C"
+  },
+  {
+    "image":
+        "https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/quizzes/alphabets/D.png?raw=true",
+    "question": "Which fruit is shown here?",
+    "options": ["A", "R", "D"],
+    "answer": "D"
+  },
+  {
+    "image":
+        "https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/quizzes/alphabets/E.png?raw=true",
+    "question": "Which vehicle is this?",
+    "options": ["Q", "E", "B"],
+    "answer": "E"
+  },
+  {
+    "image":
+        "https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/quizzes/alphabets/G.png?raw=true",
+    "question": "Which programming language logo is this?",
+    "options": ["G", "J", "O"],
+    "answer": "G"
+  },
+  {
+    "image":
+        "https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/quizzes/alphabets/K.png?raw=true",
+    "question": "Which monument is shown here?",
+    "options": ["E", "T", "K"],
+    "answer": "K"
+  },
+  {
+    "image":
+        "https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/quizzes/alphabets/M.png?raw=true",
+    "question": "What is in this image?",
+    "options": ["S", "M", "E"],
+    "answer": "M"
+  },
+  {
+    "image":
+        "https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/quizzes/alphabets/O.png?raw=true",
+    "question": "Which fruit is shown here?",
+    "options": ["O", "B", "M"],
+    "answer": "O"
+  },
+  {
+    "image":
+        "https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/quizzes/alphabets/Q.png?raw=true",
+    "question": "Which vehicle is this?",
+    "options": ["L", "X", "Q"],
+    "answer": "Q"
+  },
+  {
+    "image":
+        "https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/quizzes/alphabets/T.png?raw=true",
+    "question": "Which programming language logo is this?",
+    "options": ["H", "T", "Z"],
+    "answer": "T"
+  },
+  {
+    "image":
+        "https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/quizzes/alphabets/U.png?raw=true",
+    "question": "Which monument is shown here?",
+    "options": ["N", "T", "U"],
+    "answer": "U"
+  }
+];
