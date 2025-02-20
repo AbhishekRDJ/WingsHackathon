@@ -42,6 +42,16 @@ dependencies:
   confetti: ^0.6.0
   flutter_tts: ^3.8.5
 
+  speech_to_text: ^6.1.0
+
+  animated_text_kit: ^4.2.2
+  provider: ^6.0.5
+    # For voice recognition
+       # (Optional) If you want text-to-speech
+  video_player: ^2.7.0     # To play sign language videos
+  permission_handler: ^11.0.1 
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -79,7 +89,7 @@ flutter:
     - assets/greetings_gifs/
     - assets/challenges/
     - assets/images/logo4.png
-
+    - assets/sign/hello.mp4
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
 
