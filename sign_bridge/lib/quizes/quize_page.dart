@@ -85,8 +85,8 @@ class HomePageOfQuize extends StatelessWidget {
                         'onTap': () {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => QuizPage(
-                                    questions: quizes,
-                                    isAsset: false,
+                                    questions: challenges,
+                                    isAsset: true,
                                   )));
                         },
                         'url':

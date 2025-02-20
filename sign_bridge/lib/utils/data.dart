@@ -230,73 +230,63 @@ List<Map<String, dynamic>> greetings = [
 
 List<Map<String, dynamic>> challenges = [
   {
-    "image":
-        "https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/animals_gifs/cat.gif?raw=true",
+    "image": "assets/challenges/cat.gif",
     "question": "What is in this image?",
     "options": ["Cat", "Dog", "Elephant"],
     "answer": "Cat"
   },
   {
-    "image":
-        "https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/quizzes/alphabets/D.png?raw=true",
+    "image": "assets/challenges/sister.gif",
     "question": "Which fruit is shown here?",
-    "options": ["A", "R", "D"],
-    "answer": "D"
+    "options": ["Father", "Sister", "Brother"],
+    "answer": "Sister"
   },
   {
-    "image":
-        "https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/quizzes/alphabets/E.png?raw=true",
+    "image": "assets/challenges/Water.gif",
     "question": "Which vehicle is this?",
-    "options": ["Q", "E", "B"],
-    "answer": "E"
+    "options": ["Drink", "Milk", "Water"],
+    "answer": "Water"
   },
   {
-    "image":
-        "https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/quizzes/alphabets/G.png?raw=true",
+    "image": "assets/challenges/Q.png",
     "question": "Which programming language logo is this?",
-    "options": ["G", "J", "O"],
-    "answer": "G"
+    "options": ["G", "Q", "O"],
+    "answer": "Q"
   },
   {
-    "image":
-        "https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/quizzes/alphabets/K.png?raw=true",
+    "image": "assets/challenges/yellow.gif",
     "question": "Which monument is shown here?",
-    "options": ["E", "T", "K"],
-    "answer": "K"
+    "options": ["yellow", "T", "good morning"],
+    "answer": "yellow"
   },
   {
-    "image":
-        "https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/quizzes/alphabets/M.png?raw=true",
+    "image": "assets/challenges/M.png",
     "question": "What is in this image?",
     "options": ["S", "M", "E"],
     "answer": "M"
   },
   {
-    "image":
-        "https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/quizzes/alphabets/O.png?raw=true",
+    "image": "assets/challenges/GoodAfternoon.gif",
     "question": "Which fruit is shown here?",
-    "options": ["O", "B", "M"],
-    "answer": "O"
+    "options": ["Good Night", "Good Afternoon", "Good Morning"],
+    "answer": "Good Afternoon"
   },
   {
-    "image":
-        "https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/quizzes/alphabets/Q.png?raw=true",
+    "image": "assets/challenges/T.png",
     "question": "Which vehicle is this?",
-    "options": ["L", "X", "Q"],
-    "answer": "Q"
-  },
-  {
-    "image":
-        "https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/quizzes/alphabets/T.png?raw=true",
-    "question": "Which programming language logo is this?",
-    "options": ["H", "T", "Z"],
+    "options": ["T", "X", "Q"],
     "answer": "T"
   },
   {
-    "image":
-        "https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/quizzes/alphabets/U.png?raw=true",
+    "image": "assets/challenges/cake.gif",
+    "question": "Which programming language logo is this?",
+    "options": ["samosa", "cake", "milk"],
+    "answer": "cake"
+  },
+  {
+    "image": "assets/challenges/grandfather.gif",
     "question": "Which monument is shown here?",
-    "options": ["N", "T", "U"],
-    "answer": "U"
+    "options": ["Mother", "Grand Father", "Grand Mother"],
+    "answer": "Grand Father"
   }
 ];
