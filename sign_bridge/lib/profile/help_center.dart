@@ -72,7 +72,7 @@ class _HelpCenterPageState extends State<HelpCenterPage> {
             padding: const EdgeInsets.all(20.0),
             child: Column(
               children: [
-                Image.asset('assets/help_center.png', height: 100)
+                Image.asset('assets/images/logo.png', height: 100)
                     .animate()
                     .fade(duration: 500.ms)
                     .scale(),
