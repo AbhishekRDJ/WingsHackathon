@@ -42,10 +42,10 @@ dependencies:
   confetti: ^0.6.0
   flutter_tts: ^3.8.5
 
-  speech_to_text: ^6.1.0
+  speech_to_text: ^7.0.0
 
   animated_text_kit: ^4.2.2
-  provider: ^6.0.5
+  provider: ^6.1.2
     # For voice recognition
        # (Optional) If you want text-to-speech
   video_player: ^2.7.0     # To play sign language videos
