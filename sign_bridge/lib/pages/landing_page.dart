@@ -4,6 +4,7 @@ import 'package:sign_bridge/dictionary/dictionary_page.dart';
 import 'package:sign_bridge/learn/learning_page.dart';
 import 'package:sign_bridge/quizes/quize_page.dart';
 import 'package:sign_bridge/text_to_speech/tts_page.dart';
+import 'package:sign_bridge/voice_to_sign/voice_to_sign_homeScreen.dart';
 
 class LandingPage extends StatelessWidget {
   const LandingPage({super.key});
@@ -80,7 +81,10 @@ class LandingPage extends StatelessWidget {
                         "endColor": Colors.red,
                         'context': context,
                         "height": MediaQuery.of(context).size.height * 0.3,
-                        'onTap': () {},
+                        'onTap': () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => HomeScreenOfVTS()));
+                        },
                         'url':
                             'https://i.pinimg.com/736x/72/23/ad/7223add877ddb9dfdf2593fec35f1e4f.jpg' // Big card
                       },
