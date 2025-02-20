@@ -103,7 +103,7 @@ class LandingPage extends StatelessWidget {
                       },
                       {
                         "title": "Sign to Voice",
-                        "startColor": Colors.orangeAccent,
+                        "startColor": const Color(0xFFFFAB40),
                         "endColor": Colors.deepOrange,
                         'context': context,
                         "height": MediaQuery.of(context).size.height * 0.3,
