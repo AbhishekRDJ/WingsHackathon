@@ -15,8 +15,6 @@ class HomePageOfQuize extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 10),
-              SizedBox(height: 5),
               Row(
                 children: [
                   IconButton(
@@ -38,8 +36,6 @@ class HomePageOfQuize extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 20),
-              _recentQuizCard().animate().scale(duration: 700.ms),
-              SizedBox(height: 20),
               Expanded(
                 child: MasonryGridView.count(
                   crossAxisCount: 2,
@@ -57,7 +53,8 @@ class HomePageOfQuize extends StatelessWidget {
                         'onTap': () {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => QuizPage(
-                                    questions: quizes,
+                                    questions: greetings,
+                                    isAsset: false,
                                   )));
                         },
                         'url':
@@ -72,7 +69,8 @@ class HomePageOfQuize extends StatelessWidget {
                         'onTap': () {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => QuizPage(
-                                    questions: greetings,
+                                    questions: quizes,
+                                    isAsset: true,
                                   )));
                         },
                         'url':
@@ -88,6 +86,7 @@ class HomePageOfQuize extends StatelessWidget {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => QuizPage(
                                     questions: quizes,
+                                    isAsset: false,
                                   )));
                         },
                         'url':
@@ -115,46 +114,6 @@ class HomePageOfQuize extends StatelessWidget {
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  Widget _recentQuizCard() {
-    return Container(
-      padding: EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        gradient:
-            LinearGradient(colors: [Colors.pinkAccent, Colors.deepOrange]),
-        borderRadius: BorderRadius.circular(15),
-        boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 10)],
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Recent Quiz",
-                style: TextStyle(color: Colors.white70, fontSize: 16),
-              ),
-              SizedBox(height: 5),
-              Text(
-                "Welcome to Quizes",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold),
-              ),
-            ],
-          ),
-          CircleAvatar(
-            backgroundColor: Colors.white,
-            child: Text("65%",
-                style: TextStyle(
-                    color: Colors.pinkAccent, fontWeight: FontWeight.bold)),
-          )
-        ],
       ),
     );
   }

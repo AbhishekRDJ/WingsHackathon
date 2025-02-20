@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 
 class QuizPage extends StatefulWidget {
   final List<Map<String, dynamic>> questions;
+  final bool isAsset;
 
-  const QuizPage({super.key, required this.questions});
+  const QuizPage({super.key, required this.questions, required this.isAsset});
 
   @override
   _QuizPageState createState() => _QuizPageState();
@@ -128,7 +129,7 @@ class _QuizPageState extends State<QuizPage> {
                   "Guess the alphabet",
                   style: Theme.of(context)
                       .textTheme
-                      .titleLarge
+                      .titleMedium
                       ?.copyWith(color: Colors.white),
                 ),
                 SizedBox(height: 20),
@@ -145,17 +146,24 @@ class _QuizPageState extends State<QuizPage> {
                   style: TextStyle(color: Colors.white, fontSize: 18),
                 ),
                 SizedBox(height: 20),
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.45,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(16),
-                    child: Image.network(
-                      widget.questions[questionIndex]["image"],
-                      width: double.infinity,
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                ),
+                widget.isAsset
+                    ? Expanded(
+                        child: ClipRRect(
+                            borderRadius: BorderRadius.circular(16),
+                            child: Image.asset(
+                              widget.questions[questionIndex]["image"],
+                              fit: BoxFit.fill,
+                            )),
+                      )
+                    : Container(
+                        height: MediaQuery.of(context).size.height * 0.35,
+                        child: ClipRRect(
+                            borderRadius: BorderRadius.circular(16),
+                            child: Image.network(
+                              widget.questions[questionIndex]["image"],
+                              fit: BoxFit.fill,
+                            )),
+                      ),
                 SizedBox(height: 20),
                 Column(
                   children: (widget.questions[questionIndex]["options"]
@@ -170,7 +178,7 @@ class _QuizPageState extends State<QuizPage> {
                                     borderRadius: BorderRadius.circular(65)),
                                 fixedSize: Size(
                                   MediaQuery.of(context).size.width * 0.9,
-                                  MediaQuery.of(context).size.height * 0.06,
+                                  MediaQuery.of(context).size.height * 0.045,
                                 ),
                               ),
                               onPressed: () => _checkAnswer(option),
@@ -178,7 +186,7 @@ class _QuizPageState extends State<QuizPage> {
                                 option,
                                 style: Theme.of(context)
                                     .textTheme
-                                    .titleLarge!
+                                    .titleMedium!
                                     .copyWith(color: Colors.black),
                               ),
                             ),

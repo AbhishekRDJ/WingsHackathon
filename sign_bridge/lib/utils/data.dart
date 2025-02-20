@@ -106,6 +106,57 @@ List<Map<String, dynamic>> subjects = [
 
 List<Map<String, dynamic>> quizes = [
   {
+    "image": "assets/greetings_gifs/AllTheBest.gif",
+    "question": "What is in this image?",
+    "options": ["All the best", "Hello", "Thank you"],
+    "answer": "All the best"
+  },
+  {
+    "image": "assets/greetings_gifs/thankyou.gif",
+    "question": "Which fruit is shown here?",
+    "options": ["Welcome", "Thank you", "Good Morning"],
+    "answer": "Thank you"
+  },
+  {
+    "image": "assets/greetings_gifs/GoodMorning.gif",
+    "question": "Which vehicle is this?",
+    "options": ["Good Afternoon", "Good Night", "Good Morning"],
+    "answer": "Good Morning"
+  },
+  {
+    "image": "assets/greetings_gifs/how_are_you.gif",
+    "question": "Which programming language logo is this?",
+    "options": ["How are you", "Hello", "Bye"],
+    "answer": "How are you"
+  },
+  {
+    "image": "assets/greetings_gifs/GoodBye.gif",
+    "question": "Which monument is shown here?",
+    "options": ["Hello", "Good morning", "Good Bye"],
+    "answer": "Good Bye"
+  },
+  {
+    "image": "assets/greetings_gifs/hello.gif",
+    "question": "What is in this image?",
+    "options": ["Bye", "Hello", "Thank you"],
+    "answer": "Hello"
+  },
+  {
+    "image": "assets/greetings_gifs/GoodAfternoon.gif",
+    "question": "Which fruit is shown here?",
+    "options": ["Good Afternoon", "Good Morning", "Good Night"],
+    "answer": "Good Afternoon"
+  },
+  {
+    "image": "assets/greetings_gifs/goodnight.gif",
+    "question": "Which vehicle is this?",
+    "options": ["Good Morning", "Good Night", "Good Afternoon"],
+    "answer": "Good Night"
+  },
+];
+
+List<Map<String, dynamic>> greetings = [
+  {
     "image":
         "https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/quizzes/alphabets/C.png?raw=true",
     "question": "What is in this image?",
@@ -177,13 +228,13 @@ List<Map<String, dynamic>> quizes = [
   }
 ];
 
-List<Map<String, dynamic>> greetings = [
+List<Map<String, dynamic>> challenges = [
   {
     "image":
-        "https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/quizzes/alphabets/C.png?raw=true",
+        "https://github.com/srishtiv27/give_me_a_sign/blob/main/assets/images/animals_gifs/cat.gif?raw=true",
     "question": "What is in this image?",
-    "options": ["C", "D", "E"],
-    "answer": "C"
+    "options": ["Cat", "Dog", "Elephant"],
+    "answer": "Cat"
   },
   {
     "image":
