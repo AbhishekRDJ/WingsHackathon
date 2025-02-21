@@ -82,25 +82,33 @@ List<Map<String, dynamic>> subjects = [
     'imgUrl':
         "https://i.pinimg.com/236x/8b/42/da/8b42da28243a95af418ef32cc5df9261.jpg",
     'subject': 'Maths',
-    'progress': "completed 11 out of 20"
+    'progress': "completed 11 out of 20",
+    'play':
+        "https://youtube.com/playlist?list=PL60GgJ-A96ix_5YaoxuZYSPljrrGbs_H6&feature=shared"
   },
   {
     'imgUrl':
         "https://i.pinimg.com/236x/8b/42/da/8b42da28243a95af418ef32cc5df9261.jpg",
     'subject': 'Chemistry',
-    'progress': "completed 11 out of 20"
+    'progress': "completed 11 out of 2",
+    'play':
+        "https://youtube.com/playlist?list=PLxCzCOWd7aiEXg5BV10k9THtjnS48yI-T&feature=shared"
   },
   {
     'imgUrl':
         "https://i.pinimg.com/236x/8b/42/da/8b42da28243a95af418ef32cc5df9261.jpg",
     'subject': 'English',
-    'progress': "completed 11 out of 20"
+    'progress': "completed 11 out of 20",
+    'play':
+        "https://youtube.com/playlist?list=PL60GgJ-A96ix_5YaoxuZYSPljrrGbs_H6&feature=shared"
   },
   {
     'imgUrl':
         "https://i.pinimg.com/236x/8b/42/da/8b42da28243a95af418ef32cc5df9261.jpg",
     'subject': 'Physics',
-    'progress': "completed 11 out of 20"
+    'progress': "completed 11 out of 20",
+    'play':
+        "https://youtube.com/playlist?list=PL60GgJ-A96ix_5YaoxuZYSPljrrGbs_H6&feature=shared"
   },
 ];
 

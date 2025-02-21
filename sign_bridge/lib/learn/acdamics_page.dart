@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sign_bridge/learn/playlist.dart';
 import 'package:sign_bridge/utils/data.dart';
 
 class AcdamicsPage extends StatefulWidget {
@@ -67,42 +68,52 @@ class _AcdamicsPageState extends State<AcdamicsPage> {
                   itemBuilder: (context, index) {
                     return Padding(
                       padding: const EdgeInsets.all(12),
-                      child: Container(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-                        decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 23, 36, 65),
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                        child: Row(
-                          children: [
-                            CircleAvatar(
-                              backgroundImage:
-                                  NetworkImage(subjects[index]['imgUrl']),
-                            ),
-                            const SizedBox(
-                              width: 25,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  subjects[index]['subject'],
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodyLarge!
-                                      .copyWith(color: Colors.white),
-                                ),
-                                Text(
-                                  subjects[index]['progress'],
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodySmall!
-                                      .copyWith(color: Colors.grey),
-                                )
-                              ],
-                            )
-                          ],
+                      child: GestureDetector(
+                        onTap: () {
+                          debugPrint(subjects[index]['imgUrl']);
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => CoursePage(
+                                    playlistUrl: subjects[index]['play'],
+                                    title: subjects[index]['subject'],
+                                  )));
+                        },
+                        child: Container(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 15, vertical: 10),
+                          decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 23, 36, 65),
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                          child: Row(
+                            children: [
+                              CircleAvatar(
+                                backgroundImage:
+                                    NetworkImage(subjects[index]['imgUrl']),
+                              ),
+                              const SizedBox(
+                                width: 25,
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    subjects[index]['subject'],
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodyLarge!
+                                        .copyWith(color: Colors.white),
+                                  ),
+                                  Text(
+                                    subjects[index]['progress'],
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodySmall!
+                                        .copyWith(color: Colors.grey),
+                                  )
+                                ],
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     );
