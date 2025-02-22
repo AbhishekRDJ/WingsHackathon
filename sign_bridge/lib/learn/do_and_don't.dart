@@ -1,39 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        useMaterial3: true, // Enable Material 3
-        fontFamily: 'Roboto',
-        primarySwatch: Colors.red,
-        textTheme: const TextTheme(
-          bodyMedium: TextStyle(color: Colors.black87),
-        ),
-      ),
-      home: const HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+class DoAndDont extends StatelessWidget {
+  const DoAndDont({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[100],
+      backgroundColor: const Color(0xFF4A148C),
       appBar: AppBar(
         elevation: 8,
-        backgroundColor: Colors.redAccent,
+        backgroundColor: Colors.deepPurpleAccent,
         title: const Text(
           'Do & Don’t Guidelines',
           style: TextStyle(
@@ -54,79 +31,37 @@ class HomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Animated Header Card
             const AnimatedHeaderCard(),
-
-            // Do and Don’t Section
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(height: 16),
-                  const Text(
-                    'Do and Don’t Guidelines',
-                    style: TextStyle(
-                      fontSize: 28,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black87,
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-
-                  // Do Section
-                  _buildGuidelineTile(
-                    icon: Icons.check_circle,
-                    color: Colors.green,
-                    title: 'Do',
-                    items: [
-                      'Stay consistent with your learning.',
-                      'Build and share projects.',
-                      'Collaborate with others.',
-                    ],
-                  ),
-
-                  // Don’t Section
-                  _buildGuidelineTile(
-                    icon: Icons.cancel,
-                    color: Colors.red,
-                    title: 'Don’t',
-                    items: [
-                      'Procrastinate important tasks.',
-                      'Avoid asking for help.',
-                      'Neglect your health while coding.',
-                    ],
-                  ),
-                ],
-              ),
+            _buildGuidelineTile(
+              icon: Icons.check_circle,
+              color: Colors.green,
+              title: 'Do',
+              items: [
+                'Use sign language to communicate effectively.',
+                'Be patient while interacting with deaf individuals.',
+                'Encourage the use of text-to-speech apps.',
+                'Use gestures and expressions for better understanding.',
+              ],
             ),
+            _buildGuidelineTile(
+              icon: Icons.cancel,
+              color: Colors.red,
+              title: 'Don’t',
+              items: [
+                'Ignore or avoid eye contact when communicating.',
+                'Speak too fast without giving time to read lips.',
+                'Assume all deaf individuals can lip-read.',
+                'Use complicated words in written communication.',
+              ],
+            ),
+            _buildAnimatedCard(
+                'Learn Basic Sign Language', Icons.school, Colors.blueAccent),
+            _buildAnimatedCard('Use Visual Cues & Gestures', Icons.visibility,
+                Colors.orangeAccent),
+            _buildAnimatedCard(
+                'Be Inclusive & Supportive', Icons.group, Colors.greenAccent),
           ],
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.white,
-        elevation: 10,
-        selectedItemColor: Colors.redAccent,
-        unselectedItemColor: Colors.grey,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.video_library),
-            label: 'Tutorials',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.book),
-            label: 'Resources',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-        ],
       ),
     );
   }
@@ -137,24 +72,68 @@ class HomePage extends StatelessWidget {
     required String title,
     required List<String> items,
   }) {
-    return ListTile(
-      leading: Icon(icon, color: color, size: 32),
-      title: Text(
-        title,
-        style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-      ),
-      subtitle: Padding(
-        padding: const EdgeInsets.only(top: 8.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: items
-              .map((item) => Text(
-                    '- $item',
-                    style: const TextStyle(fontSize: 16),
-                  ))
-              .toList(),
+    return Padding(
+      padding: const EdgeInsets.all(12.0),
+      child: Card(
+        color: Colors.white,
+        elevation: 6,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
         ),
+        child: ListTile(
+          leading: Icon(icon, color: color, size: 32),
+          title: Text(
+            title,
+            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+          subtitle: Padding(
+            padding: const EdgeInsets.only(top: 8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: items
+                  .map((item) => Text(
+                        '- $item',
+                        style: const TextStyle(fontSize: 16),
+                      ))
+                  .toList(),
+            ),
+          ),
+        ).animate().fade(duration: 600.ms).slideX(begin: 0.5, end: 0.0),
       ),
+    );
+  }
+
+  Widget _buildAnimatedCard(String text, IconData icon, Color color) {
+    return Padding(
+      padding: const EdgeInsets.all(12.0),
+      child: Container(
+        padding: const EdgeInsets.all(16.0),
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black26,
+              blurRadius: 10,
+              spreadRadius: 2,
+            ),
+          ],
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              text,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Icon(icon, color: Colors.white, size: 36),
+          ],
+        ),
+      ).animate().fade(duration: 600.ms).scale(delay: 400.ms),
     );
   }
 }
@@ -169,7 +148,7 @@ class AnimatedHeaderCard extends StatelessWidget {
       padding: const EdgeInsets.all(24.0),
       decoration: BoxDecoration(
         gradient: const LinearGradient(
-          colors: [Colors.redAccent, Colors.orangeAccent],
+          colors: [Colors.deepPurple, Colors.purpleAccent],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
@@ -189,7 +168,7 @@ class AnimatedHeaderCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: const [
               Text(
-                'Hello Kshiti...',
+                'Hello User...',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 24,
@@ -213,6 +192,6 @@ class AnimatedHeaderCard extends StatelessWidget {
           ),
         ],
       ),
-    );
+    ).animate().fade(duration: 800.ms).scale();
   }
 }

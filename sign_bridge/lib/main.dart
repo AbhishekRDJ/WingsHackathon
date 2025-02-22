@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:sign_bridge/learn/video_progress_provider.dart';
 import 'package:sign_bridge/screens/mainscreen.dart';
 import 'package:sign_bridge/utils/colors.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(create: (_) => VideoProgressProvider()),
+  ], child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {

@@ -1,8 +1,10 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:sign_bridge/dictionary/dictionary_page.dart';
 import 'package:sign_bridge/learn/learning_page.dart';
 import 'package:sign_bridge/quizes/quize_page.dart';
+import 'package:sign_bridge/services/sign_to_vioce.dart';
 import 'package:sign_bridge/text_to_speech/tts_page.dart';
 import 'package:sign_bridge/voice_to_sign/voice_to_sign_homeScreen.dart';
 
@@ -103,11 +105,22 @@ class LandingPage extends StatelessWidget {
                       },
                       {
                         "title": "Sign to Voice",
-                        "startColor": Colors.orangeAccent,
+                        "startColor": const Color(0xFFFFAB40),
                         "endColor": Colors.deepOrange,
                         'context': context,
                         "height": MediaQuery.of(context).size.height * 0.3,
-                        'onTap': () {},
+                        'onTap': () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => SignToVioce(
+                                    cameras: [
+                                      CameraDescription(
+                                          name: 'Camera 1',
+                                          lensDirection:
+                                              CameraLensDirection.front,
+                                          sensorOrientation: 0)
+                                    ],
+                                  )));
+                        },
                         'url':
                             'https://i.pinimg.com/736x/5f/96/0b/5f960b8b585158f982e7e2d66f36f005.jpg' // Big card
                       },

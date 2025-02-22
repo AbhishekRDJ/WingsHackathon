@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:youtube_explode_dart/youtube_explode_dart.dart';
+import 'package:provider/provider.dart';
+import 'video_progress_provider.dart';
 
 class CoursePage extends StatefulWidget {
   final String playlistUrl;
@@ -14,9 +16,8 @@ class CoursePage extends StatefulWidget {
 
 class _CoursePageState extends State<CoursePage> {
   List<Map<String, String>> videos = [];
-  int _currentVideoIndex = 0;
-  late YoutubePlayerController _controller;
   bool isLoading = true;
+  late YoutubePlayerController _controller;
 
   @override
   void initState() {
@@ -42,40 +43,65 @@ class _CoursePageState extends State<CoursePage> {
 
     setState(() {
       videos = videoList;
-      _initializePlayer();
       isLoading = false;
     });
+
+    _initializePlayer();
   }
 
   void _initializePlayer() {
+    final progressProvider =
+        Provider.of<VideoProgressProvider>(context, listen: false);
+    int lastIndex = progressProvider.currentVideoIndex;
+    Duration lastPosition = progressProvider.lastPosition;
+
     _controller = YoutubePlayerController(
-      initialVideoId: videos[_currentVideoIndex]['id']!,
+      initialVideoId: videos.isNotEmpty ? videos[lastIndex]['id']! : '',
       flags: YoutubePlayerFlags(autoPlay: true, mute: false),
     )..addListener(() {
         if (_controller.value.playerState == PlayerState.ended) {
           _playNextVideo();
         }
+        _saveProgress();
       });
-  }
 
-  void _playNextVideo() {
-    if (_currentVideoIndex < videos.length - 1) {
-      setState(() {
-        _currentVideoIndex++;
-        _controller.load(videos[_currentVideoIndex]['id']!);
-      });
-    }
+    _controller.seekTo(lastPosition);
   }
 
   void _onVideoTap(int index) {
+    final progressProvider =
+        Provider.of<VideoProgressProvider>(context, listen: false);
+    progressProvider.saveProgress(index, 0); // Reset position
+
     setState(() {
-      _currentVideoIndex = index;
       _controller.load(videos[index]['id']!);
     });
   }
 
+  void _playNextVideo() {
+    final progressProvider =
+        Provider.of<VideoProgressProvider>(context, listen: false);
+
+    if (progressProvider.currentVideoIndex < videos.length - 1) {
+      progressProvider.saveProgress(progressProvider.currentVideoIndex + 1, 0);
+
+      setState(() {
+        _controller.load(videos[progressProvider.currentVideoIndex]['id']!);
+      });
+    }
+  }
+
+  void _saveProgress() {
+    final progressProvider =
+        Provider.of<VideoProgressProvider>(context, listen: false);
+    progressProvider.saveProgress(progressProvider.currentVideoIndex,
+        _controller.value.position.inSeconds);
+  }
+
   @override
   Widget build(BuildContext context) {
+    final progressProvider = Provider.of<VideoProgressProvider>(context);
+
     return Scaffold(
       backgroundColor: Colors.black,
       body: isLoading
@@ -116,7 +142,10 @@ class _CoursePageState extends State<CoursePage> {
                       itemCount: videos.length,
                       itemBuilder: (context, index) {
                         return GestureDetector(
-                          onTap: () => _onVideoTap(index),
+                          onTap: () {
+                            debugPrint("$progressProvider");
+                            _onVideoTap(index);
+                          },
                           child: Container(
                             margin: EdgeInsets.symmetric(
                                 vertical: 6, horizontal: 12),

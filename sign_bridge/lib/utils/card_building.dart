@@ -41,7 +41,7 @@ class CardBuilder {
           ),
         ),
         Positioned(
-          top: 10,
+          top: 0,
           child: Padding(
             padding: const EdgeInsets.all(10),
             child: Text(

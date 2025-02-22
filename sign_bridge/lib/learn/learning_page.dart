@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:sign_bridge/learn/acdamics_page.dart';
+import 'package:sign_bridge/learn/do_and_don\'t.dart';
+
 import 'package:sign_bridge/utils/card_building.dart';
 
 class LearningPage extends StatefulWidget {
@@ -39,7 +41,7 @@ class _LearningPageState extends State<LearningPage> {
                 itemBuilder: (context, index) {
                   final items = [
                     {
-                      "title": "Alphabets",
+                      "title": "Acadmics",
                       "startColor": const Color(0xFFFFC107),
                       "endColor": Colors.orange,
                       'context': context,
@@ -52,7 +54,7 @@ class _LearningPageState extends State<LearningPage> {
                           'https://i.pinimg.com/236x/82/75/ea/8275ea5e8c59e1f95401a6bd72566d41.jpg'
                     },
                     {
-                      "title": "Greeting",
+                      "title": "Essential\nskills",
                       "startColor": const Color(0xFFFFC107),
                       "endColor": Colors.orange,
                       'context': context,
@@ -62,12 +64,15 @@ class _LearningPageState extends State<LearningPage> {
                           'https://i.pinimg.com/736x/d4/69/de/d469def425bf34ed9c64eef7c6d83210.jpg'
                     },
                     {
-                      "title": "Challenge",
+                      "title": "Do's and \nDon'ts",
                       "startColor": const Color(0xFFFFC107),
                       "endColor": Colors.orange,
                       'context': context,
                       "height": MediaQuery.of(context).size.height * 0.3,
-                      'onTap': () {},
+                      'onTap': () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => DoAndDont()));
+                      },
                       'url':
                           'https://i.pinimg.com/236x/14/fe/92/14fe92a1a7246a8056de5ed6c7de653b.jpg'
                     },
